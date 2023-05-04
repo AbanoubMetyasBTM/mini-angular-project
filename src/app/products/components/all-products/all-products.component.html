@@ -1,0 +1,24 @@
+<div class="row my-4">
+  <div class="col-md-4">
+    <app-select [title]="'Category'" [date]="categories" (selectedValue)="filterWithCategory($event)"></app-select>
+  </div>
+</div>
+
+<div class="row" *ngIf="!productsIsLoaded">
+  <div class="col-md-12 text-center">
+    <app-spinner></app-spinner>
+  </div>
+</div>
+
+
+<div class="row my-4" *ngIf="productsIsLoaded">
+
+  <div class="alert alert-info" *ngIf="products.length==0">
+    <span>No products here</span>
+  </div>
+
+  <div class="col-md-4 mb-4" *ngFor="let item of products">
+    <app-product [product-item]="item"></app-product>
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="card" *ngIf="item!=null">
+
+  <a
+    routerLink="/details/{{item.id}}"
+  >
+    <img src="{{item.image}}" class="card-img-top" alt="{{item.title}}" height="300">
+  </a>
+
+  <div class="card-body">
+    <h5 class="card-title">{{item.title}}</h5>
+    <p class="card-text">
+      {{item.description | slice:0:130}} ...
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Category : {{item.category}}</li>
+    <li class="list-group-item">Price : {{item.price}}</li>
+    <li class="list-group-item">
+      Rating : {{item.rating.rate}} from count {{item.rating.count}}
+    </li>
+  </ul>
+
+  <div class="card-body">
+    <a class="btn btn-primary" (click)="showQuantityDiv=true" *ngIf="!showQuantityDiv">Add to cart</a>
+
+    <div class="form-group" *ngIf="showQuantityDiv">
+      <input type="number" class="form-control" [(ngModel)]="requestQuantity">
+      <a class="btn btn-primary" (click)="addToCard()">Add</a>
+    </div>
+  </div>
+
+</div>

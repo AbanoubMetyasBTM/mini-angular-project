@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label for="">{{title}}</label>
+  <select name="" id="" class="form-control" (change)="detectChanges($event)">
+    <option value="all">All</option>
+    <option value="{{item}}" *ngFor="let item of date">{{item}}</option>
+  </select>
+</div>
